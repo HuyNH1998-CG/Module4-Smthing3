@@ -5,20 +5,12 @@ import bigg.model.Employee;
 import bigg.service.IBranchService;
 import bigg.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 public class EmployeeController {
@@ -34,9 +26,9 @@ public class EmployeeController {
     }
 
     @GetMapping("/home")
-    public ModelAndView home(@PageableDefault(sort = "age",direction = Sort.Direction.ASC)Pageable pageable) {
+    public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView("/home");
-        Page<Employee> employees = employeeService.findAll(pageable);
+        Iterable<Employee> employees = employeeService.findAllByAge();
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
@@ -49,7 +41,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public ModelAndView create(@Valid @ModelAttribute Employee employee, BindingResult bindingResult) {
+    public ModelAndView create(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, @RequestParam("branch") int id) {
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("/create");
         } else {

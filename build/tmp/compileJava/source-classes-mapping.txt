@@ -1,26 +1,24 @@
 bigg/repository/BranchRepository.java
  bigg.repository.BranchRepository
-bigg/repository/EmployeeRepository.java
- bigg.repository.EmployeeRepository
-bigg/model/Branch.java
- bigg.model.Branch
-bigg/formatter/BranchFormatter.java
- bigg.formatter.BranchFormatter
-bigg/service/IGeneralService.java
- bigg.service.IGeneralService
 bigg/config/AppInit.java
  bigg.config.AppInit
-bigg/config/AppConfig.java
- bigg.config.AppConfig
-bigg/service/BranchService.java
- bigg.service.BranchService
-bigg/service/IBranchService.java
- bigg.service.IBranchService
+bigg/model/Branch.java
+ bigg.model.Branch
 bigg/model/Employee.java
  bigg.model.Employee
+bigg/config/AppConfig.java
+ bigg.config.AppConfig
+bigg/service/IGeneralService.java
+ bigg.service.IGeneralService
+bigg/service/IBranchService.java
+ bigg.service.IBranchService
+bigg/service/BranchService.java
+ bigg.service.BranchService
+bigg/service/IEmployeeService.java
+ bigg.service.IEmployeeService
+bigg/repository/EmployeeRepository.java
+ bigg.repository.EmployeeRepository
 bigg/service/EmployeeService.java
  bigg.service.EmployeeService
 bigg/controller/EmployeeController.java
  bigg.controller.EmployeeController
-bigg/service/IEmployeeService.java
- bigg.service.IEmployeeService

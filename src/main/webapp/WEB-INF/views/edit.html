@@ -12,18 +12,22 @@
             <tr>
                 <th>Employee Code</th>
                 <td><input type="text" th:field="*{employeeCode}"></td>
+                <td><span th:if="${#fields.hasErrors('employeeCode')}" th:errors="*{employeeCode}"></span></td>
             </tr>
             <tr>
                 <th>Name</th>
                 <td><input type="text" th:field="*{name}"></td>
+                <td><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
             </tr>
             <tr>
                 <th>Age</th>
                 <td><input type="text" th:field="*{age}"></td>
+                <td><span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span></td>
             </tr>
             <tr>
                 <th>Salary</th>
                 <td><input type="text" th:field="*{salary}"></td>
+                <td><span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span></td>
             </tr>
             <tr>
                 <th>Branch</th>

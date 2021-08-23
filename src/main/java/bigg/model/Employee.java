@@ -11,10 +11,10 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-z0-9\\S]+$")
+    @Pattern(regexp = "^[a-zA-z0-9\\s]+$")
     private String employeeCode;
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-z0-9\\S]+$")
+    @Pattern(regexp = "^[a-zA-z0-9\\s]+$")
     private String name;
     @Min(18)
     private int age;

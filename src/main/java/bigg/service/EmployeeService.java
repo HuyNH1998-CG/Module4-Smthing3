@@ -35,7 +35,7 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public Page<Employee> findAll(Pageable pageable) {
-        return employeeRepository.findAll(pageable);
+    public Iterable<Employee> findAllByAge() {
+        return employeeRepository.findAllByAge();
     }
 }
