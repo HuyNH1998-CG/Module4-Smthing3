@@ -4,6 +4,7 @@ import bigg.model.Branch;
 import bigg.model.Employee;
 import bigg.service.IBranchService;
 import bigg.service.IEmployeeService;
+import bigg.validate.ValidateDuplicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,9 @@ public class EmployeeController {
 
     @Autowired
     private IBranchService branchService;
+
+    @Autowired
+    private ValidateDuplicate validateDuplicate;
 
     @ModelAttribute("branches")
     public Iterable<Branch> branches() {
@@ -42,6 +46,7 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public ModelAndView create(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, @RequestParam("branch") int id) {
+        validateDuplicate.validate(employee,bindingResult);
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("/create");
         } else {

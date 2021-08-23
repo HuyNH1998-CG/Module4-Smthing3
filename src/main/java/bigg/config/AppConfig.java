@@ -1,5 +1,6 @@
 package bigg.config;
 
+import bigg.validate.ValidateDuplicate;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -116,7 +117,12 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("validation-message");
+        messageSource.setBasenames("validation");
         return messageSource;
+    }
+
+    @Bean
+    public ValidateDuplicate validateDuplicate(){
+        return new ValidateDuplicate();
     }
 }
